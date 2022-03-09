@@ -1,4 +1,6 @@
 # https://leetcode.com/problems/sort-an-array/
+# two point
+
 # use quick_sort
 # partition: using a window, and member in window alway bigger than pivot.
 
