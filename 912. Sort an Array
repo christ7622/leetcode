@@ -1,0 +1,40 @@
+# https://leetcode.com/problems/sort-an-array/
+# use quick_sort
+
+class Solution:
+    def sortArray(self, nums: List[int]) -> List[int]:
+        left_p = 0
+        right_p = len(nums)-1
+        self.quicksort(nums, left_p, right_p)
+    
+        return nums
+    
+    def quicksort(self, nums, left_p, right_p):
+        if (right_p-left_p+1) <= 1:
+            return
+        pivot = self.partition(nums, left_p, right_p)
+
+        self.quicksort(nums, left_p, pivot-1)
+        self.quicksort(nums, pivot+1, right_p)
+        
+    def partition(self, nums, left_p, right_p):
+        pivot = left_p + ((right_p-left_p)//2)
+        pivotValue = nums[pivot]
+
+        self.swap(nums, pivot, right_p)
+        pivot = right_p
+        
+        window_l = left_p
+        for window_r in range(left_p, right_p):
+            if(nums[window_r] < pivotValue):
+                if window_r != window_l:
+                    self.swap(nums, window_r, window_l)
+                window_l += 1
+
+        self.swap(nums, window_l, pivot)
+        pivot = window_l
+
+        return pivot
+          
+    def swap(self, nums, a, b):
+        nums[a], nums[b] = nums[b], nums[a]
