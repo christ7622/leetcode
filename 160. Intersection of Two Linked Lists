@@ -1,0 +1,27 @@
+# https://leetcode.com/problems/intersection-of-two-linked-lists/
+
+class Solution:
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
+        # edge case
+        # a: [], b: []
+        if headA == [] or headB == []:
+            return None
+        
+        a = ListNode()
+        b = ListNode()
+        
+        a = headA
+        b = headB
+
+        if a != b:
+            if a == None:
+                a.next = headB
+            else:
+                a = a.next
+                
+            if b == None:
+                b.next = headA
+            else:
+                b = b.next
+                
+        return a
