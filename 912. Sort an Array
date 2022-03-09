@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/sort-an-array/
 # use quick_sort
+# partition: using a window, and member in window alway bigger than pivot.
 
 class Solution:
     def sortArray(self, nums: List[int]) -> List[int]:
