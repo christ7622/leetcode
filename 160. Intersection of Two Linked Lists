@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/intersection-of-two-linked-lists/
+# two point
 
 class Solution:
     def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
